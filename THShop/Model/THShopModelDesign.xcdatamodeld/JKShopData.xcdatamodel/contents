@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="THCategory" representedClassName="THCategory" syncable="YES">
+        <attribute name="category_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parent_id" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="THProduct" inverseName="category_id" inverseEntity="THProduct" syncable="YES"/>
+    </entity>
+    <entity name="THProduct" representedClassName="THProduct" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="product_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="product_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sale_price" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stock" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stock_status" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category_id" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="THCategory" inverseName="products" inverseEntity="THCategory" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="THProductImages" inverseName="product_id" inverseEntity="THProductImages" syncable="YES"/>
+    </entity>
+    <entity name="THProductImages" representedClassName="THProductImages" syncable="YES">
+        <attribute name="image_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="large_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="medium_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="small_url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="product_id" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="THProduct" inverseName="images" inverseEntity="THProduct" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="THCategory" positionX="-209" positionY="-238" width="128" height="103"/>
+        <element name="THProduct" positionX="-398" positionY="-163" width="128" height="223"/>
+        <element name="THProductImages" positionX="-162" positionY="-55" width="128" height="118"/>
+    </elements>
+</model>

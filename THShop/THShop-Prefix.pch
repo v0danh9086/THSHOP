@@ -1,0 +1,102 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#pragma mark LAYOUT DEFINE
+
+#define THSHOP_NAVIGATION_BG @"navbg.png"
+
+
+
+#pragma mark UNDENTIFIER DEFINE
+
+#ifdef DEBUG
+
+#define API_SERVER_HOST                             @"http://jkshop.vn/api"
+#define URBAN_AIRSHIP_APP_KEY                       @"S4NTYF0UReqCkkxBtTsjgQ"
+#define URBAN_AIRSHIP_APP_SECRET                    @"gOhq1D_yQmuS7FcKIzu0SQ"
+#define GOOGLE_TRACKING_ID                          @"UA-22523153-3"
+#define SETTINGS_JK_SHOP_LONGITUDE                  106.644924
+#define SETTINGS_JK_SHOP_LATITUDE                   10.771788
+
+#else
+
+#define API_SERVER_HOST                             @"http://jkshop.vn/api"
+#define URBAN_AIRSHIP_APP_KEY                       @"S4NTYF0UReqCkkxBtTsjgQ"
+#define URBAN_AIRSHIP_APP_SECRET                    @"gOhq1D_yQmuS7FcKIzu0SQ"
+#define GOOGLE_TRACKING_ID                          @"UA-22523153-3"
+#define SETTINGS_JK_SHOP_LONGITUDE                  106.644924
+#define SETTINGS_JK_SHOP_LATITUDE                   10.771788
+
+#endif
+
+#define AUTORESIZING_MASK_ALL_SIDES                 (UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin)
+
+#define TH_SHOP_NAME                                @"JKSHOP"
+#define TH_SHOP_DESCRIBE                            @"JK Shop - Chuyên cung cấp các loại quần áo thời trang việt nam xuất khẩu và phụ kiện cao cấp dành cho nam giới. \n\n\n\n Cà Phê Cao Cấp , Cà Phê Nhân Sống"
+#define TH_SHOP_CONTACT                             @"■ Website: www.JKshop.vn \n■ Địa chỉ: 351/1/12 Lạc Long Quân Phường 5, Quận 11, TpHCM. \n■ Liên hệ: 0909226976 - Tùng"
+
+#define TEMPLATE_COMPONENT_NUMBER 4
+#define TEMPLATE_HEADER_MENU @"HeaderTableCell"
+#define TEMPLATE_FOOTER @"FooterTableCell"
+#define TEMPLATE_BODY @"BodyTableCell"
+#define TEMPLATE_LEFT_MENU @"LeftMenuView"
+
+
+#define API_OAUTH_TOKEN                             @"/oauth/token"      //This is not inside API_PREFIX
+#define API_PREFIX                                  @"/api/v1"
+#define CLASS_PREFIX_LENGTH                         2
+#define API_GET_LIST_CATEGORY                       @"/products/tk_get_list_categories/"
+#define API_GET_PRODUCT_BY_CATEGORY_ID              @"/products/tk_get_products_by_category/"
+#define API_GET_PRODUCT_BY_PRODUCT_ID               @"/products/tk_get_product_by_product_id/"
+
+#define API_GET_NONCE                               @"/get_nonce/"
+#define NOTIF_CHANGE_BOOKMARK_PRODUCT_COUNT         @"changBookmarkProductCount"
+
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+
+#pragma mark CHECK IPHONE IOS VERSION
+//
+// Convenient macro to check system version
+// Source: http://stackoverflow.com/questions/3339722/check-iphone-ios-version
+//
+#define SYSTEM_VERSION                              ([[UIDevice currentDevice] systemVersion])
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([SYSTEM_VERSION compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([SYSTEM_VERSION compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([SYSTEM_VERSION compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([SYSTEM_VERSION compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([SYSTEM_VERSION compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+#define DEVICE_NAME                                 ([[UIDevice currentDevice] name])
+
+#define IS_LANDSCAPE                                (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation))
+#define IS_PORTRAIT                                 (UIInterfaceOrientationIsPortrait([UIApplication sharedApplication].statusBarOrientation))
+#define IS_IPAD                                     ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPad)
+#define IS_NOT_IPAD                                 ([UIDevice currentDevice].userInterfaceIdiom!=UIUserInterfaceIdiomPad)
+#define IS_RETINA                                   ([UIScreen mainScreen].scale > 1)
+#define DEVICE_SCALE                                ([UIScreen mainScreen].scale)
+
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
+
+#ifdef DEBUG
+#define DLog(__FORMAT__, ...) NSLog((@"%s [L:%d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define ALog(...) [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:__VA_ARGS__]
+#else
+#define DLog(...) do {} while (0)
+#define ALog(__FORMAT__, ...) NSLog((@"%s [L:%d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#endif
+
